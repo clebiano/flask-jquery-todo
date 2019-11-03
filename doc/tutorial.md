@@ -68,16 +68,24 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
     - `$ sudo apt-get install -y nodejs`
     - `$ node --version`
     - `$ npm --version`
-
 - Instalação do yarn e react
     - `$ sudo npm install -g yarn`
     - `$ yarn global add create-react-app react-scripts`
 - Configurando o frontend com react
     - `$ npx create-react-app frontend`
-- Remova do frontend os arquivos .git, README.md e .gitignore. Antes disso, use o conteúdo desse .gitignore para o .gitignore do diretório raiz
-
-
-
+- Remova do frontend os arquivos .git, README.md e .gitignore. Antes disso, use o conteúdo desse .gitignore para o .gitignore do diretório raiz. Na verdade, quando já existe um diretório .git/ na raiz do projeto não é criado outro .git/.
+- Adicionando todas as alterações na lista de espera  
+  `$ git add .`  
+- Ver status do monitoramento  
+  `$ git status`  
+- Confirmando mudanças no projeto  
+  `$ git commit -m "First project commit."`
+- Após o commit execute o comando (Dá erro se não tiver realizado o commit das últimas alterações)
+    - `$ cd frontend/`
+    - `$ npm run eject`
+- Após a configurações descritas em https://www.youtube.com/watch?v=_RSVoqXWzSw&t=105s execute
+    - `$ npm run build`
+- 
 
 - Criando o projeto inicial django no ambiente virtual venv  
 	`$ django-admin.py startproject proj .` # o "." permite que o arquivo "manage.py" seja criado na raiz do projeto  
@@ -154,3 +162,16 @@ https://stackoverflow.com/questions/15856358/heroku-collectstatic-not-run-during
 	Username (leave blank to use 'clebiano'): 03939033383  
 	Email address: clebiano@alumni.usp.br  
 	Password: \*\*\*\*\*\*\*
+
+# Referências
+
+https://www.youtube.com/watch?v=_RSVoqXWzSw&t=105s
+
+https://github.com/Eyongkevin/hello_template
+
+https://github.com/spacedevs-team/react_flask_statusok/blob/master/package.json
+
+https://codeburst.io/creating-a-full-stack-web-application-with-python-npm-webpack-and-react-8925800503d9
+
+https://github.com/angineering/FullStackTemplate/blob/master/fullstack_template/static/webpack.config.js
+

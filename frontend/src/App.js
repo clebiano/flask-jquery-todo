@@ -10,6 +10,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>My Token = {window.token}</p>
+        <h1>Clebiano da Costa Sá</h1>
         <a
           className="App-link"
           href="https://reactjs.org"
