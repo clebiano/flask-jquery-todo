@@ -1,31 +1,8 @@
 
-- Instalação do Node.js v12.x no Ubuntu
-    - `$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`
-    - `$ sudo apt-get install -y nodejs`
-    - `$ node --version`
-    - `$ npm --version`
-
-- Instalação do yarn e react
-    - `$ sudo npm install -g yarn`
-    - `$ yarn global add create-react-app react-scripts`
-- Configurando o frontend com react
-    - `$ npx create-react-app frontend`
-- Remova do frontend os arquivos .git, README.md e .gitignore. Antes disso, use o conteúdo desse .gitignore para o .gitignore do diretório raiz 
-
-
-
-
-    - `$ cd frontend`
-    - `$ yarn start`
-
- 
-
-
-
 # Tutorial: criando uma aplicação web com Flask e React
 Este tutorial tem o propósito de ajudar na criação de novos projetos com Flask e React.
 
-## Estrutura inicial
+# BackEnd
 - Criando diretório raiz para o projeto  
 	`$ mkdir flask-react-todo-list`
 - Entrando no diretório raiz do projeto  
@@ -68,9 +45,6 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
 - Instalando o Flask mais recente no ambiente virtual venv  
 	`$ source venv/bin/activate`  
 	`$ pip install Flask`  
-
-
-
 - Instalando flask-sqlalchemy para que o SQL seja gerado a partir das configurações em Python  
     - `$ pip install flask-sqlalchemy` 
     - `$ pip install Flask-Migrate`
@@ -87,6 +61,23 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
     - https://linuxhint.com/install_sqlite_browser_ubuntu_1804/
     - `$ sudo apt install sqlite3`
     - `$ sudo apt-get install sqlitebrowser`
+
+# FrontEnd
+- Instalação do Node.js v12.x no Ubuntu
+    - `$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`
+    - `$ sudo apt-get install -y nodejs`
+    - `$ node --version`
+    - `$ npm --version`
+
+- Instalação do yarn e react
+    - `$ sudo npm install -g yarn`
+    - `$ yarn global add create-react-app react-scripts`
+- Configurando o frontend com react
+    - `$ npx create-react-app frontend`
+- Remova do frontend os arquivos .git, README.md e .gitignore. Antes disso, use o conteúdo desse .gitignore para o .gitignore do diretório raiz
+
+
+
 
 - Criando o projeto inicial django no ambiente virtual venv  
 	`$ django-admin.py startproject proj .` # o "." permite que o arquivo "manage.py" seja criado na raiz do projeto  
