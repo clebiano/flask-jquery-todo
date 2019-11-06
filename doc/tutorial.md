@@ -84,8 +84,138 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
     - `$ cd frontend/`
     - `$ npm run eject`
 - Após a configurações descritas em https://www.youtube.com/watch?v=_RSVoqXWzSw&t=105s execute
-    - `$ npm run build`
-- 
+    - `frontend$ npm run build`
+
+# Instalação do projeto em uma nova máquina  
+- Deletar o diretório venv quando houver `$ rm -rf venv/`
+- Criar uma nova venv  
+    - `$ sudo apt install virtualenv`  
+    - `$ virtualenv -p python3.6 venv`  
+    - `$ source venv/bin/activate`  
+    - `$ pip install -r requirements-dev.txt`  
+    - `$ ./manage.py makemigrations`
+    - `$ ./manage.py migrate`
+- Criando uma conta administrativa  
+	`$ python manage.py createsuperuser`  
+	Username (leave blank to use 'clebiano'): 03939033383  
+	Email address: clebiano@alumni.usp.br  
+	Password: \*\*\*\*\*\*\*
+
+- Instalação do Node.js v12.x no Ubuntu
+    - `$ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -`
+    - `$ sudo apt-get install -y nodejs`
+    - `$ node --version`
+    - `$ npm --version`
+- Instalação do yarn e react
+    - `$ sudo npm install -g yarn`
+    - `$ yarn global add create-react-app react-scripts`
+- Instalação do servidor web nginx e gunicorn
+    - `$ sudo apt-get install nginx`
+    - `$ pip install gunicorn`
+
+# Deploy AWS
+- Referências:
+    - AWS https://console.aws.amazon.com/
+    - Criar conta AWS: https://www.youtube.com/playlist?list=PLWMAkZq0y_ZMQyoztoxwwD3QBsyNbZKL9 
+    - Deploy https://www.youtube.com/playlist?list=PL5KTLzN85O4KTCYzsWZPTP0BfRj6I_yUP
+    - Deploy https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
+- Acesso via SSH:
+    - `$ cd /media/clebiano/clebiano_data/programas`
+    - `$ ssh -i flask-react-ccs.pem ubuntu@3.86.142.40`
+    - `$ chmod 400 flask-react-ccs.pem`
+    - `$ ssh -i flask-react-ccs.pem ubuntu@3.86.142.40`
+    - `$ python3 -V`
+    - `$ sudo apt-get update`
+    - `$ sudo apt-get install python3-pip`
+    - `$ htop`
+- Atualizei o requirements-dev.txt do projeto na minha máquina
+- Fiz um commit das últimas alterações
+- Compactando diretório
+    - `$ tar -zcf flask-react-todo-list.tar.gz flask-react-todo-list/`
+- Copiando o pacote do meu notebook para a instância na AWS
+    - Entrar no diretório onde está a chave de segurança `$ cd /media/clebiano/clebiano_data/programas`
+    - `$ scp -i flask-react-ccs.pem flask-react-todo-list.tar.gz ubuntu@3.86.142.40:`
+- Descompactando / descomprimindo / descompactar / Extraindo o pacote
+    - `$ tar -xzf flask-react-todo-list.tar.gz`
+- Removendo o flask-react-todo-list.tar.gz
+    - `rm flask-react-todo-list.tar.gz`
+- Principais arquivos de configuração:
+   - `$ sudo nano /etc/systemd/system/flask-react-todo-list.service`
+
+	[Unit]
+	Description=Gunicorn instance to serve flask-react-todo-list
+	After=network.target
+
+	[Service]
+	User=ubuntu
+	Group=www-data
+	WorkingDirectory=/home/ubuntu/flask-react-todo-list/backend
+	Environment="PATH=/home/ubuntu/flask-react-todo-list/venv/bin"
+	ExecStart=/home/ubuntu/flask-react-todo-list/venv/bin/gunicorn --workers 3 --bind unix:flask-react-todo-list.sock -m 007 main:app
+
+	\#[Install]
+	\#WantedBy=multi-user.target
+
+    - `$ sudo nano /etc/nginx/sites-available/flask-react-todo-list`
+
+	server{
+	   \#listen 80;
+	   listen 8080;
+	   server_name 3.86.142.40;
+
+	\#   location / {
+	\#        proxy_pass http://127.0.0.1:8000;
+	\#   }
+	\#}
+
+
+	\#server {
+	\#    listen 80;
+	\#    server_name ec2-3-86-142-40.compute-1.amazonaws.com www.ec2-3-86-142-40.compute-1.amazonaws.com;
+	\#    server_name 3.86.142.40 www.3.86.142.40;
+
+	    location / {
+		\#include proxy_params;
+		proxy_pass http://unix:/home/ubuntu/flask-react-todo-list/backend/flask-react-todo-list.sock;
+	    }
+	}
+
+- Dicas para evitar problemas:
+    - Estar atento aos caminhos informados: colocar o usuário e nome do diretório corretamente
+    - Em ExecStart fica o caminho do Gunicorn instalado na máquina virtual venv
+    - Não deixar variações/cópias dos arquivos descritos acima. Exclua arquivos como "flask-react-todo-list.save"
+    - Fique atento ao local onde está o arquivo principal do projeto Flask, o main.py. Sempre informe corretamente o local do diretório. Nesse projeto é o backend/.
+- Testar o deploy com o IP público na AWS e a porta utilizada na configuração
+    - http://3.86.142.40:8080/
+- Uma vez feitas as configurações de deploy o teste rápido da app será via:
+    - `frontend$ npm run build`
+    - `backend(venv)$ gunicorn main:app`
+    -  http://127.0.0.1:8000
+
+# Referências
+
+https://www.youtube.com/watch?v=_RSVoqXWzSw&t=105s
+
+https://github.com/Eyongkevin/hello_template
+
+https://github.com/spacedevs-team/react_flask_statusok/blob/master/package.json
+
+https://codeburst.io/creating-a-full-stack-web-application-with-python-npm-webpack-and-react-8925800503d9
+
+https://github.com/angineering/FullStackTemplate/blob/master/fullstack_template/static/webpack.config.js
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - Criando o projeto inicial django no ambiente virtual venv  
 	`$ django-admin.py startproject proj .` # o "." permite que o arquivo "manage.py" seja criado na raiz do projeto  
@@ -148,30 +278,7 @@ http://whitenoise.evans.io/en/stable/
 https://stackoverflow.com/questions/15856358/heroku-collectstatic-not-run-during-deployment  
 `$ heroku run python manage.py collectstatic --dry-run --noinput`  
 
-# Instalação do projeto em uma nova máquina  
-- Deletar o diretório venv quando houver  
-- Criar uma nova venv  
-    - `$ sudo apt install virtualenv`  
-    - `$ virtualenv -p python3.6 venv`  
-    - `$ source venv/bin/activate`  
-    - `$ pip install -r requirements-dev.txt`  
-    - `$ ./manage.py makemigrations`
-    - `$ ./manage.py migrate`
-- Criando uma conta administrativa  
-	`$ python manage.py createsuperuser`  
-	Username (leave blank to use 'clebiano'): 03939033383  
-	Email address: clebiano@alumni.usp.br  
-	Password: \*\*\*\*\*\*\*
 
-# Referências
 
-https://www.youtube.com/watch?v=_RSVoqXWzSw&t=105s
 
-https://github.com/Eyongkevin/hello_template
-
-https://github.com/spacedevs-team/react_flask_statusok/blob/master/package.json
-
-https://codeburst.io/creating-a-full-stack-web-application-with-python-npm-webpack-and-react-8925800503d9
-
-https://github.com/angineering/FullStackTemplate/blob/master/fullstack_template/static/webpack.config.js
 

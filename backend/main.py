@@ -1,12 +1,21 @@
-import flask
+from flask import Flask, render_template, request
 
-
-app = flask.Flask("__main__")
-
+app = Flask(__name__)
 
 @app.route("/")
 def my_index():
-    return flask.render_template("index.html", token="Hello Flask+React")
+    return render_template("index.html", token="Hello Flask+React")
 
 
-app.run(debug=True)
+#import flask
+
+
+#app = flask.Flask("__main__")
+
+
+#@app.route("/")
+#def my_index():
+    #return flask.render_template("index.html", token="Hello Flask+React")
+
+
+#app.run(debug=True)
