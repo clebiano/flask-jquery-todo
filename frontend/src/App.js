@@ -12,7 +12,7 @@ function App() {
         </p>
         <p>My Token = {window.token}</p>
         <h1>Clebiano da Costa Sá</h1>
-        <h1>TESTE</h1>
+        <h1>TESTE 55555</h1>
         <a
           className="App-link"
           href="https://reactjs.org"

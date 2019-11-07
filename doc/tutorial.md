@@ -151,7 +151,7 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
 	Group=www-data
 	WorkingDirectory=/home/ubuntu/flask-react-todo-list/backend
 	Environment="PATH=/home/ubuntu/flask-react-todo-list/venv/bin"
-	ExecStart=/home/ubuntu/flask-react-todo-list/venv/bin/gunicorn --workers 3 --bind unix:flask-react-todo-list.sock -m 007 main:app
+	ExecStart=/home/ubuntu/flask-react-todo-list/venv/bin/gunicorn --workers 3 --bind unix:flask-react-todo-list.sock -m 007 manager:app
 
 	\#[Install]
 	\#WantedBy=multi-user.target
@@ -184,13 +184,21 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
     - Estar atento aos caminhos informados: colocar o usuário e nome do diretório corretamente
     - Em ExecStart fica o caminho do Gunicorn instalado na máquina virtual venv
     - Não deixar variações/cópias dos arquivos descritos acima. Exclua arquivos como "flask-react-todo-list.save"
-    - Fique atento ao local onde está o arquivo principal do projeto Flask, o main.py. Sempre informe corretamente o local do diretório. Nesse projeto é o backend/.
+    - Fique atento ao local onde está o arquivo principal do projeto Flask, o manager.py. Sempre informe corretamente o local do diretório. Nesse projeto é o backend/.
 - Testar o deploy com o IP público na AWS e a porta utilizada na configuração
     - http://3.86.142.40:8080/
-- Uma vez feitas as configurações de deploy o teste rápido da app será via:
+- Uma vez feitas as configurações de deploy um teste rápido da app poderá ser via:
     - `frontend$ npm run build`
-    - `backend(venv)$ gunicorn main:app`
+    - `backend(venv)$ gunicorn manager:app` ou `$ python manager.py runserver`
     -  http://127.0.0.1:8000
+
+
+ New minor version of npm available! 6.12.0 → 6.13.0       │
+   │   Changelog: https://github.com/npm/cli/releases/tag/v6.13.0   │
+   │               Run npm install -g npm to update!  
+
+Erro: eu estava chamando as funcionalidades do gunicorn e do manager no mesmo arquivo.
+Resolvi criando um arquivo wsgi.
 
 # Referências
 
@@ -204,7 +212,7 @@ https://codeburst.io/creating-a-full-stack-web-application-with-python-npm-webpa
 
 https://github.com/angineering/FullStackTemplate/blob/master/fullstack_template/static/webpack.config.js
 
-
+https://github.com/viniciuschiele/flask-apscheduler/issues/50#issuecomment-315114627
 
 
 
