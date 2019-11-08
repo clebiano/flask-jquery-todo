@@ -286,7 +286,74 @@ http://whitenoise.evans.io/en/stable/
 https://stackoverflow.com/questions/15856358/heroku-collectstatic-not-run-during-deployment  
 `$ heroku run python manage.py collectstatic --dry-run --noinput`  
 
+# App.js
+
+//      <header className="App-header">
+//        <img src={logo} className="App-logo" alt="logo" />
+//        <p>
+//          Edit <code>src/App.js</code> and save to reload.
+//        </p>
+//        <p>My Token = {window.token}</p>
+//        <h1>Clebiano da Costa Sá</h1>
+//        <h1>TESTE 55555</h1>
+//        <a
+//          className="App-link"
+//          href="https://reactjs.org"
+//          target="_blank"
+//          rel="noopener noreferrer"
+//        >
+//          Learn React
+//        </a>
+//      </header>
+
+
+# Index.css
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
+#APP.css
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
 
 
 
 
+
+Instalei essa dependecncias por causa de um tutorial, mas no final nem utilizei (ignorar)
+    - # instalar dependencies do frontend
+    - `$ npm i`
+    - `$ npm i @blueprintjs/core`

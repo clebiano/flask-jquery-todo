@@ -9,15 +9,19 @@ from app.models.tables import Task
 #     return "Olá Tamires!"
 
 
-@app.route("/")
 @app.route("/todolist")
+def todolist():
+    return render_template("index.html", token="Hello Flask+React")
+
+
+@app.route("/")
 def my_index():
     return render_template("index.html", token="Hello Flask+React")
 
 
-@app.route("/todolist/tasks/<int:id>", methods=['GET'])
-def task(id):
-    return "Task, %s!" % id
+# @app.route("/todolist/tasks/<int:id>", methods=['GET'])
+# def task(id):
+#     return "Task, %s!" % id
 
 
 @app.route("/add/<info>")
