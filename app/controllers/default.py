@@ -11,7 +11,9 @@ from app.models.tables import Task
 
 @app.route("/todolist")
 def todolist():
-    return render_template("index.html", token="Hello Flask+React")
+    tasks = Task.query.all()
+
+    return render_template("index.html", tasks=tasks)
 
 
 @app.route("/")

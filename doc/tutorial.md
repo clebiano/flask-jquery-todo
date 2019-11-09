@@ -350,10 +350,7 @@ code {
 }
 
 
-
-
-
-Instalei essa dependecncias por causa de um tutorial, mas no final nem utilizei (ignorar)
+Dependências do TodoList
     - # instalar dependencies do frontend
     - `$ npm i`
     - `$ npm i @blueprintjs/core`
