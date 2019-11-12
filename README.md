@@ -23,5 +23,7 @@ Instalação:
 - Teste a aplicação abrindo o link abaixo no seu navegador
     - http://127.0.0.1:5000/todolist
 
+Deploy da APP em AWS: http://3.86.142.40:8080/todolist
+
 Contato:  
 clebiano@alumni.usp.br

@@ -199,6 +199,61 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
 Erro: eu estava chamando as funcionalidades do gunicorn e do manager no mesmo arquivo.
 Resolvi criando um arquivo wsgi.
 
+
+sudo systemctl daemon-reload
+  524  sudo service flask-react-todo-list start
+  525  sudo service flask-react-todo-list status
+  526  ls /etc/nginx/sites-available/
+  527  sudo nano ~/flask-react-todo-list/
+  528  ll
+  529  cd ../sites-available/
+  530  ll
+  531  more flask-react-todo-list 
+  532  sudo nano flask-react-todo-list 
+  533  sudo nginx -t
+  534  sudo systemctl restart nginx
+  535  deactivate 
+  536  sudo nano ~/flask-react-todo-list/
+  537  la
+  538  ls
+  539  sudo nano flask-react-todo-list 
+  540  sudo nginx -t
+  541  sudo systemctl restart nginx
+  542  sudo nginx -t
+  543  htop
+  544  cd /etc/systemd/system/
+  545  ll
+  546  ls
+  547  sudo rm flask-react-todo-list.service.save
+  548  ll
+  549  ls
+  550  sudo nginx -t
+  551  sudo systemctl restart nginx
+  552  ls
+  553  sudo nano flask-react-todo-list.service
+  554  /etc/nginx/sites-available/
+  555  cd /etc/nginx/sites-available/
+  556  ll
+  557  rm flask-react-todo-list.save
+  558  sudo rm flask-react-todo-list.save
+  559  ll
+  560  sudo nano flask-react-todo-list
+  561  ls
+  562  sudo nginx -t
+  563  sudo systemctl restart nginx
+  564  sudo nano flask-react-todo-list
+  565  ls
+  566  sudo nginx -t
+  567  sudo systemctl restart nginx
+  568  sudo nano flask-react-todo-list
+  569  sudo nginx -t
+  570  sudo systemctl restart nginx
+  571  sudo nano flask-react-todo-list
+  572  sudo nginx -t
+  573  sudo systemctl restart nginx
+
+
+
 # Referências
 
 https://www.youtube.com/watch?v=_RSVoqXWzSw&t=105s
