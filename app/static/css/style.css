@@ -1,0 +1,72 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 125px; /* Margin bottom by footer height */
+    background-color: #FAFAFA;
+}
+
+.container {
+    padding: 40px 15px;
+    color: #4d4d4d;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 300;
+    line-height: 1.1;
+    color: inherit;
+}
+
+/* icons and buttons
+------------------------------*/
+.fa-trash-alt {
+    color: #C82333;
+}
+
+.fa-pencil-alt {
+    color: #0069D9;
+}
+
+.fa-trash-alt, .fa-pencil-alt {
+    cursor: pointer;
+    margin: 5px;
+    float: right;
+}
+
+.addButton {
+    display: flex;
+    justify-content: normal;
+    padding: 0;
+}
+
+#addButton {
+    display: flex;
+    margin-left: 5px;
+}
+
+/* todo list
+------------------------------*/
+
+.todo-list {
+    list-style: none;
+    margin-top: 30px;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: normal;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 6px;
+}
+

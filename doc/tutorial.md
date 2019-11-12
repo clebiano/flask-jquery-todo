@@ -51,12 +51,12 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
     - `$ pip install Flask-Script`
 - Referência: https://www.youtube.com/watch?v=tJZjniFdaIw&list=PL3BqW_m3m6a05ALSBW02qDXmfDKIip2KX&index=5
 - Testando a aplicação
-    - `$ python run.py runserver`
+    - `$ python manage.py runserver`
 - Inicializando as migrações
-    - `$ python run.py db init`
+    - `$ python manage.py db init`
 - Migrando alterações para o banco de dados
-    - `$ python run.py db migrate`
-    - `$ python run.py db upgrade`
+    - `$ python manage.py db migrate`
+    - `$ python manage.py db upgrade`
 - Instalação do sqlite3 e sqlitebrowser
     - https://linuxhint.com/install_sqlite_browser_ubuntu_1804/
     - `$ sudo apt install sqlite3`

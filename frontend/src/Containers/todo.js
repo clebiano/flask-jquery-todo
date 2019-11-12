@@ -23,13 +23,13 @@ class Todo extends React.Component {
     onNewItem() {
         this.setState({
             items: [
-                ...this.state.items,
                 {
                     id: Date.now(),
                     text: '',
                     isChecked: false,
                     isEditting: true, 
                 },
+                ...this.state.items,
             ],
         })
     }

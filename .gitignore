@@ -3,6 +3,7 @@
 venv
 *.sqlite3
 .idea
+.vscode
 
 # dependencies
 /node_modules
