@@ -93,8 +93,7 @@ Este tutorial tem o propósito de ajudar na criação de novos projetos com Flas
     - `$ virtualenv -p python3.6 venv`  
     - `$ source venv/bin/activate`  
     - `$ pip install -r requirements-dev.txt`  
-    - `$ ./manage.py makemigrations`
-    - `$ ./manage.py migrate`
+
 - Criando uma conta administrativa  
 	`$ python manage.py createsuperuser`  
 	Username (leave blank to use 'clebiano'): 03939033383  
