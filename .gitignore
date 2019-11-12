@@ -1,5 +1,6 @@
 venv
-sqlite3.db
+*sqlite*
 .idea
 .vscode
 migrations
+__pycache__
